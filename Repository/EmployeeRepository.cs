@@ -5,7 +5,9 @@ namespace GenericAutomapperTests.Repository
 {
       internal class EmployeeRepository
       {
-            private Random random = new Random();
+            private readonly Random _random = new Random();
+            private const int _MaxYearsToGoBack = 10;
+
             public Employee GetEmployee(int employeeId)
             {
                 var employee = new Faker<Employee>()
@@ -13,7 +15,7 @@ namespace GenericAutomapperTests.Repository
                     .RuleFor(u => u.FirstName, (f, u) => f.Name.FirstName())
                     .RuleFor(u => u.LastName, (f, u) => f.Name.LastName())
                     .RuleFor(u => u.Title, (f, u) => f.Name.JobTitle())
-                    .RuleFor(u => u.StartDate, (f, u) => f.Date.Past(random.Next(10)));
+                    .RuleFor(u => u.StartDate, (f, u) => f.Date.Past(_random.Next(_MaxYearsToGoBack)));
 
                 return employee;
             }
@@ -26,7 +28,7 @@ namespace GenericAutomapperTests.Repository
                     .RuleFor(u => u.FirstName, (f, u) => f.Name.FirstName())
                     .RuleFor(u => u.LastName, (f, u) => f.Name.LastName())
                     .RuleFor(u => u.Title, (f, u) => f.Name.JobTitle())
-                    .RuleFor(u => u.StartDate, (f, u) => f.Date.Past(random.Next(10)));
+                    .RuleFor(u => u.StartDate, (f, u) => f.Date.Past(_random.Next(_MaxYearsToGoBack)));
 
                   var employeeList = employeeFaker.Generate(1);
                   return employeeList.First();
