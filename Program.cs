@@ -1,5 +1,4 @@
-﻿using Bogus.Bson;
-using GenericAutomapperTests.DTOs;
+﻿using GenericAutomapperTests.DTOs;
 using GenericAutomapperTests.Services;
 
 namespace GenericAutomapperTests
@@ -22,7 +21,7 @@ namespace GenericAutomapperTests
 
                 Console.WriteLine("\nRun again(y/n)? ");
             }
-            while (Console.ReadLine()?.ToLower() is "yes" or "y");
+            while (Console.ReadKey(false).Key is ConsoleKey.Y);
         }
 
         private static void RunAutoMapperWithSpecificObject(EmployeeService service)
