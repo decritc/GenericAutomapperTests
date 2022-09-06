@@ -19,7 +19,7 @@ namespace GenericAutomapperTests
                 Console.WriteLine(new string('-', 20));
                 RunAutoMapperWithGenericObject(service);
 
-                Console.WriteLine("\nRun again(y/n)? ");
+                Console.Write("\nRun again(y/n)? ");
             }
             while (Console.ReadKey(false).Key is ConsoleKey.Y);
         }
