@@ -1,40 +1,47 @@
-﻿using GenericAutomapperTests.DTOs;
+﻿using Bogus.Bson;
+using GenericAutomapperTests.DTOs;
 using GenericAutomapperTests.Services;
 
 namespace GenericAutomapperTests
 {
-  public class Program
-  {
-    public static void Main()
+    public class Program
     {
-      var service = new EmployeeService();
+        public static void Main()
+        {
+            do
+            {
+                var service = new EmployeeService();
 
-      Console.WriteLine("Specific Object");
-      Console.WriteLine(new string('-', 20));
-      RunAutoMapperWithSpecificObject(service);
-      
-      Console.WriteLine("\nGeneric Object");
-      Console.WriteLine(new string('-', 20));
-      RunAutoMapperWithGenericObject(service);
-    }
+                Console.WriteLine("\nSpecific Object");
+                Console.WriteLine(new string('-', 20));
+                RunAutoMapperWithSpecificObject(service);
 
-    private static void RunAutoMapperWithSpecificObject(EmployeeService service)
-    {
-      var employee = service.GetEmployee(1);
-      WriteEmployeeToConsole(employee);
-    }
+                Console.WriteLine("\nGeneric Object");
+                Console.WriteLine(new string('-', 20));
+                RunAutoMapperWithGenericObject(service);
 
-    private static void RunAutoMapperWithGenericObject(EmployeeService service)
-    {
-      var employee = service.GetGenericEmployee(1);
-      WriteEmployeeToConsole(employee);
+                Console.WriteLine("\nRun again(y/n)? ");
+            }
+            while (Console.ReadLine()?.ToLower() is "yes" or "y");
+        }
+
+        private static void RunAutoMapperWithSpecificObject(EmployeeService service)
+        {
+            var employee = service.GetEmployee(1);
+            WriteEmployeeToConsole(employee);
+        }
+
+        private static void RunAutoMapperWithGenericObject(EmployeeService service)
+        {
+            var employee = service.GetGenericEmployee(1);
+            WriteEmployeeToConsole(employee);
+        }
+        private static void WriteEmployeeToConsole(EmployeeDTO employee)
+        {
+            Console.WriteLine(employee.FirstName + " " +
+                              employee.LastName + "\n" +
+                              employee.SomeInt + "\n" +
+                              employee.StartDate.ToShortDateString());
+        }
     }
-    private static void WriteEmployeeToConsole(EmployeeDTO employee)
-    {
-      Console.WriteLine(employee.FirstName + " " +
-                        employee.LastName + "\n" +
-                        employee.SomeInt + "\n" +
-                        employee.StartDate.ToShortDateString());
-    }
-  }
 }
