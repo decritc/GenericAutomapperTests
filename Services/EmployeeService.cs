@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using TestBed.DTOs;
-using TestBed.Helpers;
-using TestBed.Models;
-using TestBed.Repository;
+using GenericAutomapperTests.DTOs;
+using GenericAutomapperTests.Helpers;
+using GenericAutomapperTests.Models;
+using GenericAutomapperTests.Repository;
 
-namespace TestBed.Services
+namespace GenericAutomapperTests.Services
 {
   internal class EmployeeService
   {

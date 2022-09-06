@@ -1,4 +1,4 @@
-﻿namespace TestBed.Models
+﻿namespace GenericAutomapperTests.Models
 {
   internal class Employee
   {

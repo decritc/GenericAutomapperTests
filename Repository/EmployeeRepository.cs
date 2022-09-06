@@ -1,9 +1,7 @@
-﻿using TestBed.Models;
+﻿using GenericAutomapperTests.Models;
 using Bogus;
-using System.Dynamic;
-using TestBed.Helpers;
 
-namespace TestBed.Repository
+namespace GenericAutomapperTests.Repository
 {
   internal class EmployeeRepository
   {

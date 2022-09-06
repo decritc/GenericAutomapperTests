@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace TestBed.Helpers
+namespace GenericAutomapperTests.Helpers
 {
     public class AnonBinder : Bogus.Binder
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestBed.Helpers;
+namespace GenericAutomapperTests.Helpers;
 public static class ObjectToDictionaryHelper
 {
     public static IDictionary<string, object> ToDictionary(this object source)

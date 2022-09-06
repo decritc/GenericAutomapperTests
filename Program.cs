@@ -1,7 +1,7 @@
-﻿using TestBed.DTOs;
-using TestBed.Services;
+﻿using GenericAutomapperTests.DTOs;
+using GenericAutomapperTests.Services;
 
-namespace TestBed
+namespace GenericAutomapperTests
 {
   public class Program
   {

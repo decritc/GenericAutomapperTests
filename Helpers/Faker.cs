@@ -1,7 +1,6 @@
 ﻿using Bogus;
-using TestBed;
 
-namespace TestBed.Helpers
+namespace GenericAutomapperTests.Helpers
 {
     public class Faker
     {

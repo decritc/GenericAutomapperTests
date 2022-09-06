@@ -1,4 +1,4 @@
-﻿namespace TestBed.DTOs
+﻿namespace GenericAutomapperTests.DTOs
 {
   internal class EmployeeDTO
   {
