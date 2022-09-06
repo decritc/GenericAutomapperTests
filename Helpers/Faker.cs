@@ -2,24 +2,24 @@
 
 namespace GenericAutomapperTests.Helpers
 {
-    public class Faker
+    public static class Faker
     {
-        public static Faker<U> FromAnonymousType<U>(U obj) where U : class
+        public static Faker<T> FromAnonymousType<T>(T obj) where T : class
         {
             int FindConstructorLength()
             {
-                return typeof(U).GetConstructors().First().GetParameters().Length;
+                return typeof(T).GetConstructors().First().GetParameters().Length;
             }
 
             var count = FindConstructorLength();
 
             var args = new object[count];
 
-            var anonBinder = new AnonBinder();
+            var anonBinder = new AnonymousBinder();
 
-            return new Faker<U>(binder: anonBinder)
+            return new Faker<T>(binder: anonBinder)
                .CustomInstantiator(_ =>
-                  Activator.CreateInstance(typeof(U), args: args) as U);
+                  Activator.CreateInstance(typeof(T), args: args) as T ?? throw new ArgumentNullException());
         }
     }
 }

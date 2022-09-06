@@ -25,7 +25,7 @@ public static class ObjectToDictionaryHelper
 
     private static void AddPropertyToDictionary<T>(PropertyDescriptor property, object source, Dictionary<string, T> dictionary)
     {
-        object value = property.GetValue(source);
+        var value = property.GetValue(source) ?? throw new ArgumentNullException();
         if (IsOfType<T>(value))
         {
             dictionary.Add(property.Name, (T)value);
